@@ -1,12 +1,16 @@
 <?xml version="1.0"?> <!--Обязательное поле для xml. Можно добавить кодировку, валидацию и т.д.-->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <!-- Всегда schema в корне xsd -->
+    
+    <xsd:simpleType name="Limiter"> <!-- Значит, элемент примитивного, базового типа-->
+        <xsd:restriction base="xsd:integer"> <!--Выбираем тип для ограничений-->
+            <xsd:minExclusive value="0"/> <!--Само ограничение, минимум 0 (не включительно) -->
+            <xsd:maxInclusive value="10"/> <!--Само ограничение, максимум 10-->
+        </xsd:restriction>
+    </xsd:simpleType>
 
-    <xsd:element name="price"> <!-- Валидация коренного простого элемента order по типу integer -->
-        <xsd:simpleType> <!-- Значит, элемент примитивного, базового типа-->
-            <xsd:restriction base="xsd:integer"> <!--Выбираем тип для ограничений-->
-                <xsd:minExclusive value="0"/> <!--Само ограничение, минимум 0 (не включительно) -->
-                <xsd:maxInclusive value="10"/> <!--Само ограничение, максимум 10-->
-            </xsd:restriction>
+    <xsd:element name="price">
+        <xsd:simpleType>
+            <xsd:list itemType="Limiter"/>
         </xsd:simpleType>
     </xsd:element>
 
