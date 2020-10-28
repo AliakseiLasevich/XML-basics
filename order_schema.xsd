@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?> <!--Обязательное поле для xml. Можно добавить кодировку, валидацию и т.д.-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> <!-- Всегда schema в корне xs -->
 
-    <xs:simpleType name="ByInteger"> <!-- Значит, элемент примитивного, базового типа-->
-        <xs:restriction base="xs:integer"> <!--Выбираем тип для ограничений-->
-            <xs:minExclusive value="0"/> <!--Само ограничение, минимум 0 (не включительно) -->
-            <xs:maxInclusive value="10"/> <!--Само ограничение, максимум 10-->
-        </xs:restriction>
-    </xs:simpleType>
+    <xs:complexType name="Product">
+        <xs:sequence> <!--sequence гарантирует порядок параметров -->
+            <xs:element name="price" type="xs:double"/>
+            <xs:element name="color" type="xs:string"/>
+            <xs:element name="count" type="xs:int"/>
+            <xs:element name="note" type="xs:string" minOccurs="0"/> <!--minOccurs 0 = поле может отсутствовать -->
+        </xs:sequence>
+    </xs:complexType>
 
-    <xs:simpleType name="ByName"> <!-- Значит, элемент примитивного, базового типа-->
-        <xs:restriction base="xs:string"> <!--Выбираем тип для ограничений-->
-         <xs:enumeration value="A"/>
-         <xs:enumeration value="B"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:element name="price">
-        <xs:simpleType>
-           <xs:union memberTypes="ByName ByInteger"/>
-        </xs:simpleType>
-    </xs:element>
+    <xs:element name="product" type="Product"/>
 
 </xs:schema>

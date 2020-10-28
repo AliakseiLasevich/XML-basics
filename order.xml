@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<price xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="order_schema.xsd"> <!-- Подключили валидацию схемы -->
-5
-</price>
+<product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="order_schema.xsd"> <!-- Подключили валидацию схемы -->
+        <price>1</price>
+        <color>red</color>
+        <count>2</count>
+</product>
