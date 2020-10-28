@@ -1,17 +1,24 @@
-<?xml version="1.0"?> <!--Обязательное поле для xml. Можно добавить кодировку, валидацию и т.д.-->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <!-- Всегда schema в корне xsd -->
-    
-    <xsd:simpleType name="Limiter"> <!-- Значит, элемент примитивного, базового типа-->
-        <xsd:restriction base="xsd:integer"> <!--Выбираем тип для ограничений-->
-            <xsd:minExclusive value="0"/> <!--Само ограничение, минимум 0 (не включительно) -->
-            <xsd:maxInclusive value="10"/> <!--Само ограничение, максимум 10-->
-        </xsd:restriction>
-    </xsd:simpleType>
+<?xml version="1.0" encoding="UTF-8"?> <!--Обязательное поле для xml. Можно добавить кодировку, валидацию и т.д.-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> <!-- Всегда schema в корне xs -->
 
-    <xsd:element name="price">
-        <xsd:simpleType>
-            <xsd:list itemType="Limiter"/>
-        </xsd:simpleType>
-    </xsd:element>
+    <xs:simpleType name="ByInteger"> <!-- Значит, элемент примитивного, базового типа-->
+        <xs:restriction base="xs:integer"> <!--Выбираем тип для ограничений-->
+            <xs:minExclusive value="0"/> <!--Само ограничение, минимум 0 (не включительно) -->
+            <xs:maxInclusive value="10"/> <!--Само ограничение, максимум 10-->
+        </xs:restriction>
+    </xs:simpleType>
 
-</xsd:schema>
+    <xs:simpleType name="ByName"> <!-- Значит, элемент примитивного, базового типа-->
+        <xs:restriction base="xs:string"> <!--Выбираем тип для ограничений-->
+         <xs:enumeration value="A"/>
+         <xs:enumeration value="B"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="price">
+        <xs:simpleType>
+           <xs:union memberTypes="ByName ByInteger"/>
+        </xs:simpleType>
+    </xs:element>
+
+</xs:schema>

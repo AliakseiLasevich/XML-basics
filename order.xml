@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <price xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="order_schema.xsd"> <!-- Подключили валидацию схемы -->
-    1 2 3 4 5 <!-- Значение простого поля price в соответствии с подключенной схемой  -->
+5
 </price>
