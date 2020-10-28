@@ -7,6 +7,12 @@
             <xs:element name="color" type="xs:string"/>
             <xs:element name="count" type="xs:int"/>
             <xs:element name="note" type="xs:string" minOccurs="0"/> <!--minOccurs 0 = поле может отсутствовать -->
+
+            <xs:choice> <!--Валидация на обязательное присутствие одного из тегов-->
+                <xs:element name="big" type="xs:string"/>
+                <xs:element name="little" type="xs:string"/>
+            </xs:choice>
+
         </xs:sequence>
     </xs:complexType>
 
