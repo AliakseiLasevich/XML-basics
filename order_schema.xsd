@@ -1,0 +1,4 @@
+<?xml version="1.0"?> <!--Обязательное поле для xml. Можно добавить кодировку, валидацию и т.д.-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <!-- Всегда schema в корне xsd -->
+    <xsd:element name="price" type="xsd:integer"/> <!-- Валидация коренного простого элемента order по типу integer -->
+</xsd:schema>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<price xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="order_schema.xsd"> <!-- Подключили валидацию схемы -->
+    12345 <!-- Значение простого поля price в соответствии с подключенной схемой  -->
+</price>
